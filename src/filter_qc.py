@@ -23,6 +23,9 @@ logger = logging.getLogger(__name__)
 logger.propagate = False
 logger.setLevel(logging.INFO)
 
+#PICARD_EXECUTABLE = "java -Xmx4G -jar /picard/MarkDuplicates.jar"
+PICARD_EXECUTABLE = "java -Xmx4G -jar /Users/jseth/bin/picard.jar MarkDuplicates"
+
 
 def dup_parse(fname):
     with open(fname, 'r') as dup_file:
@@ -176,7 +179,7 @@ def main(input_bam, fastqs, samtools_params, debug):
     tmp_filt_bam_filename = raw_bam_basename + ".dupmark.bam"
     dup_file_qc_filename = raw_bam_basename + ".dup.qc"
     picard_string = ' '.join([
-        "java -Xmx4G -jar /picard/MarkDuplicates.jar",
+        PICARD_EXECUTABLE,
         "INPUT=%s" % (filt_bam_filename),
         "OUTPUT=%s" % (tmp_filt_bam_filename),
         "METRICS_FILE=%s" % (dup_file_qc_filename),
