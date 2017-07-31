@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent { label 'slave-w-docker-cromwell-60GB-ebs' }
 	stages {
 		stage('Build') {
 			steps {
