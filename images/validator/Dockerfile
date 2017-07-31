@@ -22,6 +22,6 @@ WORKDIR /image_software
 # This COPY asumes the build context is the root of the pipeline-container repo
 # and it gets whatever is checked out plus local modifications
 RUN mkdir pipeline-container && cd pipeline-container && mkdir src
-COPY /src/validate_output.pyc pipeline-container/src/validate_output.pyc
+COPY /src/validate_output.py pipeline-container/src/validate_output.py
 
-ENTRYPOINT ["python", "/image_software/pipeline-container/src/validate_output.pyc"]
+ENTRYPOINT ["python", "/image_software/pipeline-container/src/validate_output.py"]
