@@ -6,7 +6,9 @@ pipeline {
 		}
 	stages {
 		stage('Unit tests') {
-			echo 'Running unit tests..'			
+			steps {
+				echo 'Running unit tests..'			
+			}
 		}
 		stage('Build-nonmaster') {
 			when { not { branch 'master' } }
