@@ -5,6 +5,9 @@ pipeline {
                 QUAY_PASS = credentials('ottojolanki-quay')
                 }
         stages {
+		stage('Unit-tests') {
+			echo "Running unit tests.."
+		}
                 stage('Build-nonmaster') {
                         when { not { branch 'master' } }
                         steps { 
