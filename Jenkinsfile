@@ -5,6 +5,9 @@ pipeline {
 		QUAY_PASS = credentials('ottojolanki-quay')
 		}
 	stages {
+		stage('Unit tests') {
+			
+		}
 		stage('Build-nonmaster') {
 			when { not { branch 'master' } }
 			steps {
@@ -25,4 +28,14 @@ pipeline {
 			}
 		}		 
 	}
+	post {
+		success {
+			echo 'Post build actions that run on success'
+		}
+		failure {
+			echo 'Post build actions that run on failure'
+		}
+		always {
+			echo 'Post build actions that run always'
+		} 
 }
