@@ -7,7 +7,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				echo "Building.. ${env.GIT_BRANCH}"
+				echo "$env.GIT_BRANCH"
 				sh "docker login -u=ottojolanki -p=${QUAY_PASS} quay.io"
 				sh "docker logout"	
 			}
