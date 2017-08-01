@@ -25,4 +25,15 @@ pipeline {
                         }
                 }
         }
+	post {
+                success {
+                        echo 'Post build actions that run on success'
+                }
+                failure {
+                        echo 'Post build actions that run on failure'
+                }
+                always {
+                        echo 'Post build actions that run always'
+                }
+	}
 }
