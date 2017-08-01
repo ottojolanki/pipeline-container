@@ -8,6 +8,7 @@ pipeline {
 		stage('Unit tests') {
 			steps {
 				echo 'Running unit tests..'			
+				sh 'python tests/unit_tests.py'
 			}
 		}
 		stage('Build-nonmaster') {
