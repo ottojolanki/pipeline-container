@@ -2,6 +2,7 @@ pipeline {
 	agent { label 'slave-w-docker-cromwell-60GB-ebs' }
 	environment {
 		QUAY_PASS = credentials('ottojolanki-quay')
+		BRANCH = sh "echo ${GIT_BRANCH} | sed 's/origin\///'"
 		}
 	stages {
 		stage('Build') {
